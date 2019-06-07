@@ -38,7 +38,7 @@ X_train = g_total2[0:g_train1.shape[0]]
 y_train = g_train1['type1']
 
 tree_estimator = tree.DecisionTreeClassifier()
-dt_grid = {'max_depth':list(range(10,15)), 'min_samples_split':list(range(2,8)), 'criterion':['gini','entropy']}
+dt_grid = {'max_depth':list(range(5,10)), 'min_samples_split':list(range(2,8)), 'criterion':['gini','entropy']}
 
 param_grid = model_selection.GridSearchCV(tree_estimator, dt_grid, cv=10) #Evolution of tee
 param_grid.fit(X_train, y_train)
