@@ -61,8 +61,8 @@ def get_imputers(df, features):
 def impute_missing_data(df, imputers):
     cont_features = get_continuous_columns(df)
     cat_features = get_categorical_columns(df)
-    df[cont_features] = imputers[0].transform(df[cont_features])
-    df[cat_features] = imputers[1].transform(df[cat_features])
+    df[cont_features] = imputers[0].transform(df[cont_features]) # imputers[0] performs mean on the continuous features
+    df[cat_features] = imputers[1].transform(df[cat_features])  # imputers[1] performs mode on the continuous features
     
 def get_heat_map_corr(df):
     corr = get_continuous_columns.corr()
