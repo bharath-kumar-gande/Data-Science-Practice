@@ -93,11 +93,15 @@ def preapare_small_dataset_for_flow(train_dir_original, test_dir_original, targe
         val_dogs = ['dog.{}.jpg'.format(i) for i in range(1000, 1500)]
         for t in val_dogs:
              shutil.copy2(os.path.join(train_dir_original, t), os.path.join(validation_dir, 'dogs'))
+       
+        test_images = ['{}.jpg'.format(i) for i in range(1, 1000)]
+        for t in test_images:
+             shutil.copy2(os.path.join(test_dir_original, t), os.path.join(test_dir, 'images'))                
 
-        files = os.listdir(test_dir_original)           
-        test_files = [os.path.join(test_dir_original, f) for f in files]
-        for t in test_files:
-            shutil.copy2(t, os.path.join(test_dir, 'images'))
+        #files = os.listdir(test_dir_original)           
+        #test_files = [os.path.join(test_dir_original, f) for f in files]
+        #for t in test_files:
+        #    shutil.copy2(t, os.path.join(test_dir, 'images'))
     else:
         print('required directory structure already exists. learning continues with existing data')
     
